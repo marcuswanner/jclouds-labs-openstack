@@ -1,0 +1,8 @@
+{
+    "snapshot": {
+        "name": "jclouds-test-snapshot",
+        "share_id": "ea6f70ef-2784-40b9-9d14-d7f33c507c3f",
+        "description": "jclouds test snapshot",
+        "force": "true"
+    }
+}

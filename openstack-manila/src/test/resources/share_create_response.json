@@ -1,0 +1,15 @@
+{
+    "share": {
+        "status": "creating",
+        "name": "jclouds-test-share",
+        "availability_zone": "nova",
+        "share_type": "default",
+        "created_at": "2012-10-29T20:53:28.000000",
+        "description": "description of test share",
+        "share_proto": "NFS",
+        "snapshot_id": null,
+        "metadata": {},
+        "id": "60761c60-0f56-4499-b522-ff13e120af10",
+        "size": 1
+    }
+}

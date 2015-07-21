@@ -1,0 +1,8 @@
+{
+    "quota_set": {
+        "gigabytes": 1000,
+        "shares": 10,
+        "snapshots": 20,
+        "id": "demo"
+    }
+}

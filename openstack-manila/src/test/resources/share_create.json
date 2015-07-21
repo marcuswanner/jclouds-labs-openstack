@@ -1,0 +1,9 @@
+{
+    "share": {
+        "name": "jclouds-test-share",
+        "description": "description of test share",
+        "size": 1,
+        "share_proto": "NFS",
+        "share_type": "default"
+    }
+}

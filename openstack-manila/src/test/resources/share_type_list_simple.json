@@ -1,0 +1,12 @@
+{
+    "share_types": [
+        {
+            "name": "jclouds-test-1",
+            "extra_specs": {
+                "test": "value1",
+                "test1": "wibble"
+            },
+            "id": 1
+        }
+    ]
+}
