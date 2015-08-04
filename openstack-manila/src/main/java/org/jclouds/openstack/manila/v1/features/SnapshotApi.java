@@ -26,7 +26,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import org.jclouds.Fallbacks.EmptyFluentIterableOnNotFoundOr404;
+import org.jclouds.Fallbacks.EmptyListOnNotFoundOr404;
 import org.jclouds.Fallbacks.FalseOnNotFoundOr404;
 import org.jclouds.Fallbacks.NullOnNotFoundOr404;
 import org.jclouds.javax.annotation.Nullable;
@@ -40,7 +40,7 @@ import org.jclouds.rest.annotations.RequestFilters;
 import org.jclouds.rest.annotations.SelectJson;
 import org.jclouds.rest.annotations.SkipEncoding;
 
-import com.google.common.collect.FluentIterable;
+import java.util.List;
 
 /**
  * Provides access to Share Snapshots API.
@@ -59,8 +59,8 @@ public interface SnapshotApi {
    @Named("snapshot:list")
    @GET
    @SelectJson("snapshots")
-   @Fallback(EmptyFluentIterableOnNotFoundOr404.class)
-   FluentIterable<? extends Snapshot> list();
+   @Fallback(EmptyListOnNotFoundOr404.class)
+   List<Snapshot> list();
 
    /**
     * Returns a detailed list of Snapshots.
@@ -71,8 +71,8 @@ public interface SnapshotApi {
    @GET
    @Path("/detail")
    @SelectJson("snapshots")
-   @Fallback(EmptyFluentIterableOnNotFoundOr404.class)
-   FluentIterable<? extends Snapshot> listInDetail();
+   @Fallback(EmptyListOnNotFoundOr404.class)
+   List<Snapshot> listInDetail();
 
    /**
     * Return data about the given Snapshot.

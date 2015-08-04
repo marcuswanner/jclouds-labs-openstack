@@ -27,14 +27,14 @@ import javax.ws.rs.DELETE;
 import javax.ws.rs.core.MediaType;
 
 import org.jclouds.Fallbacks;
-import org.jclouds.Fallbacks.EmptyFluentIterableOnNotFoundOr404;
+import org.jclouds.Fallbacks.EmptyListOnNotFoundOr404;
 import org.jclouds.Fallbacks.NullOnNotFoundOr404;
 import org.jclouds.javax.annotation.Nullable;
 import org.jclouds.openstack.manila.v1.domain.ShareType;
 import org.jclouds.openstack.keystone.v2_0.filters.AuthenticateRequest;
 import org.jclouds.openstack.manila.v1.options.CreateShareTypeOptions;
 
-import com.google.common.collect.FluentIterable;
+import java.util.List;
 import org.jclouds.rest.annotations.Fallback;
 import org.jclouds.rest.annotations.RequestFilters;
 import org.jclouds.rest.annotations.SelectJson;
@@ -58,8 +58,8 @@ public interface ShareTypeApi {
    @Named("shareType:list")
    @GET
    @SelectJson("share_types")
-   @Fallback(EmptyFluentIterableOnNotFoundOr404.class)
-   FluentIterable<? extends ShareType> list();
+   @Fallback(EmptyListOnNotFoundOr404.class)
+   List<ShareType> list();
 
    /**
     * Return data about the given ShareType.

@@ -22,6 +22,8 @@ import static org.testng.Assert.assertNull;
 import static org.testng.Assert.assertTrue;
 
 import java.net.URI;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Set;
 
 import javax.ws.rs.core.MediaType;
@@ -33,8 +35,6 @@ import org.jclouds.openstack.manila.v1.domain.Share;
 import org.jclouds.openstack.manila.v1.options.CreateShareOptions;
 import org.jclouds.rest.ResourceNotFoundException;
 import org.testng.annotations.Test;
-
-import com.google.common.collect.ImmutableSet;
 
 /**
  * Tests ShareApi Guice wiring and parsing
@@ -52,8 +52,8 @@ public class ShareApiExpectTest extends org.jclouds.openstack.manila.v1.internal
             HttpResponse.builder().statusCode(200).payload(payloadFromResource("/share_list_details.json")).build()
       ).getShareApi("RegionOne");
 
-      Set<? extends Share> shares = api.listInDetail().toSet();
-      assertEquals(shares, ImmutableSet.of(testShareDetailed()));
+      List<? extends Share> shares = api.listInDetail();
+      assertEquals(shares, Arrays.asList(testShareDetailed()));
    }
 
    public void testListSharesInDetailFail() {
@@ -65,7 +65,7 @@ public class ShareApiExpectTest extends org.jclouds.openstack.manila.v1.internal
             HttpResponse.builder().statusCode(404).build()
       ).getShareApi("RegionOne");
 
-      Set<? extends Share> shares = api.listInDetail().toSet();
+      List<? extends Share> shares = api.listInDetail();
       assertTrue(shares.isEmpty());
    }
 

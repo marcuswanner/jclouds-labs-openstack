@@ -20,6 +20,7 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertNotNull;
 import static org.testng.Assert.assertTrue;
 
+import java.util.List;
 import java.util.Set;
 
 import com.google.common.collect.ImmutableMap;
@@ -129,7 +130,7 @@ public class ShareAndSnapshotApiLiveTest extends org.jclouds.openstack.manila.v1
 
    @Test(dependsOnMethods = "testCreateShare")
    public void testListShares() {
-      Set<? extends Share> shares = shareApi.list().toSet();
+      List<? extends Share> shares = shareApi.list();
       assertNotNull(shares);
       boolean foundIt = false;
       for (Share vol : shares) {
@@ -145,7 +146,7 @@ public class ShareAndSnapshotApiLiveTest extends org.jclouds.openstack.manila.v1
 
    @Test(dependsOnMethods = "testCreateShare")
    public void testListSharesInDetail() {
-      Set<? extends Share> shares = shareApi.listInDetail().toSet();
+      List<? extends Share> shares = shareApi.listInDetail();
       assertNotNull(shares);
       boolean foundIt = false;
       for (Share share : shares) {
@@ -185,7 +186,7 @@ public class ShareAndSnapshotApiLiveTest extends org.jclouds.openstack.manila.v1
 
    @Test(dependsOnMethods = "testCreateSnapshot")
    public void testListSnapshots() {
-      Set<? extends Snapshot> snapshots = snapshotApi.listInDetail().toSet();
+      List<? extends Snapshot> snapshots = snapshotApi.listInDetail();
       assertNotNull(snapshots);
       boolean foundIt = false;
       for (Snapshot snap : snapshots) {
@@ -202,7 +203,7 @@ public class ShareAndSnapshotApiLiveTest extends org.jclouds.openstack.manila.v1
 
    @Test(dependsOnMethods = "testCreateSnapshot")
    public void testListSnapshotsInDetail() {
-      Set<? extends Snapshot> snapshots = snapshotApi.listInDetail().toSet();
+      List<? extends Snapshot> snapshots = snapshotApi.listInDetail();
       assertNotNull(snapshots);
       boolean foundIt = false;
       for (Snapshot snap : snapshots) {

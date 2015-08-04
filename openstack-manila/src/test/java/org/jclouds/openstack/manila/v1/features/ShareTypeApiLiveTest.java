@@ -18,6 +18,7 @@ package org.jclouds.openstack.manila.v1.features;
 
 import static org.testng.Assert.assertNotNull;
 
+import java.util.List;
 import java.util.Set;
 
 import org.jclouds.openstack.manila.v1.domain.ShareType;
@@ -50,7 +51,7 @@ public class ShareTypeApiLiveTest extends org.jclouds.openstack.manila.v1.intern
    }
 
    public void testListAndGetShareTypes() {
-      Set<? extends ShareType> shareTypes = shareTypeApi.list().toSet();
+      List<? extends ShareType> shareTypes = shareTypeApi.list();
       assertNotNull(shareTypes);
 
       for (ShareType vt : shareTypes) {

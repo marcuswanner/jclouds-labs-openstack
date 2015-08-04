@@ -26,7 +26,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import org.jclouds.Fallbacks.EmptyFluentIterableOnNotFoundOr404;
+import org.jclouds.Fallbacks.EmptyListOnNotFoundOr404;
 import org.jclouds.Fallbacks.FalseOnNotFoundOr404;
 import org.jclouds.Fallbacks.NullOnNotFoundOr404;
 import org.jclouds.javax.annotation.Nullable;
@@ -40,7 +40,7 @@ import org.jclouds.rest.annotations.RequestFilters;
 import org.jclouds.rest.annotations.SelectJson;
 import org.jclouds.rest.annotations.SkipEncoding;
 
-import com.google.common.collect.FluentIterable;
+import java.util.List;
 
 /**
  * Provides access to the Share API.
@@ -61,8 +61,8 @@ public interface ShareApi {
    @Named("share:list")
    @GET
    @SelectJson("shares")
-   @Fallback(EmptyFluentIterableOnNotFoundOr404.class)
-   FluentIterable<? extends Share> list();
+   @Fallback(EmptyListOnNotFoundOr404.class)
+   List<Share> list();
 
    /**
     * Returns a detailed list of Shares.
@@ -73,8 +73,8 @@ public interface ShareApi {
    @GET
    @Path("/detail")
    @SelectJson("shares")
-   @Fallback(EmptyFluentIterableOnNotFoundOr404.class)
-   FluentIterable<? extends Share> listInDetail();
+   @Fallback(EmptyListOnNotFoundOr404.class)
+   List<Share> listInDetail();
 
    /**
     * Return data about the given Share.

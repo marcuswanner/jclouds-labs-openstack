@@ -22,6 +22,8 @@ import static org.testng.Assert.assertNull;
 import static org.testng.Assert.assertTrue;
 
 import java.net.URI;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Set;
 
 import javax.ws.rs.core.MediaType;
@@ -57,8 +59,8 @@ public class SnapshotApiExpectTest extends org.jclouds.openstack.manila.v1.inter
             HttpResponse.builder().statusCode(200).payload(payloadFromResource("/snapshot_list_details.json")).build()
       ).getSnapshotApi("RegionOne");
 
-      Set<? extends Snapshot> snapshots = api.listInDetail().toSet();
-      assertEquals(snapshots, ImmutableSet.of(testSnapshotDetailed()));
+      List<? extends Snapshot> snapshots = api.listInDetail();
+      assertEquals(snapshots, Arrays.asList(testSnapshotDetailed()));
 
       // double-check individual fields
       Snapshot snappy = Iterables.getOnlyElement(snapshots);
@@ -79,7 +81,7 @@ public class SnapshotApiExpectTest extends org.jclouds.openstack.manila.v1.inter
             HttpResponse.builder().statusCode(404).build()
       ).getSnapshotApi("RegionOne");
 
-      Set<? extends Snapshot> snapshots = api.listInDetail().toSet();
+      List<? extends Snapshot> snapshots = api.listInDetail();
       assertTrue(snapshots.isEmpty());
    }
 

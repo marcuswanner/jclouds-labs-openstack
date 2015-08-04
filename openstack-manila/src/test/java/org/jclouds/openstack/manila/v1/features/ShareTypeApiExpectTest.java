@@ -20,7 +20,8 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertNull;
 
 import java.net.URI;
-import java.util.Set;
+import java.util.List;
+import java.util.Arrays;
 
 import org.jclouds.date.DateService;
 import org.jclouds.date.internal.SimpleDateFormatDateService;
@@ -29,7 +30,6 @@ import org.jclouds.openstack.manila.v1.domain.ShareType;
 import org.testng.annotations.Test;
 
 import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.ImmutableSet;
 
 /**
  * Tests Guice wiring and parsing of ShareTypeApi
@@ -47,8 +47,8 @@ public class ShareTypeApiExpectTest extends org.jclouds.openstack.manila.v1.inte
             HttpResponse.builder().statusCode(200).payload(payloadFromResource("/share_type_list_simple.json")).build()
       ).getShareTypeApi("RegionOne");
 
-      Set<? extends ShareType> types = api.list().toSet();
-      assertEquals(types, ImmutableSet.of(testShareType()));
+      List<? extends ShareType> types = api.list();
+      assertEquals(types, Arrays.asList(testShareType()));
    }
 
    public void testGetShareType() {

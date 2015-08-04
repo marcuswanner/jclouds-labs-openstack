@@ -16,9 +16,9 @@
  */
 package org.jclouds.openstack.manila.v1.features;
 
-import com.google.common.collect.FluentIterable;
+import java.util.List;
 import org.jclouds.Fallbacks;
-import org.jclouds.Fallbacks.EmptyFluentIterableOnNotFoundOr404;
+import org.jclouds.Fallbacks.EmptyListOnNotFoundOr404;
 import org.jclouds.Fallbacks.NullOnNotFoundOr404;
 import org.jclouds.javax.annotation.Nullable;
 import org.jclouds.openstack.keystone.v2_0.filters.AuthenticateRequest;
@@ -57,8 +57,8 @@ public interface ShareNetworkApi {
    @Named("shareNetwork:list")
    @GET
    @SelectJson("share_networks")
-   @Fallback(EmptyFluentIterableOnNotFoundOr404.class)
-   FluentIterable<? extends ShareNetwork> list();
+   @Fallback(EmptyListOnNotFoundOr404.class)
+   List<ShareNetwork> list();
 
    /**
     * Return data about the given ShareNetwork.
