@@ -34,7 +34,6 @@ import org.jclouds.openstack.manila.v1.domain.Share;
 import org.jclouds.openstack.manila.v1.options.CreateShareOptions;
 import org.jclouds.openstack.keystone.v2_0.filters.AuthenticateRequest;
 import org.jclouds.rest.annotations.Fallback;
-import org.jclouds.rest.annotations.MapBinder;
 import org.jclouds.rest.annotations.PayloadParam;
 import org.jclouds.rest.annotations.RequestFilters;
 import org.jclouds.rest.annotations.SelectJson;
@@ -101,7 +100,6 @@ public interface ShareApi {
    @POST
    @SelectJson("share")
    @Produces(MediaType.APPLICATION_JSON)
-   @MapBinder(CreateShareOptions.class)
    Share create(@PayloadParam("share_proto") String proto, @PayloadParam("size") int sizeGB, CreateShareOptions... options);
 
    /**

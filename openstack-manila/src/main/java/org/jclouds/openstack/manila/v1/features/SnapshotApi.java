@@ -34,7 +34,6 @@ import org.jclouds.openstack.manila.v1.domain.Snapshot;
 import org.jclouds.openstack.manila.v1.options.CreateSnapshotOptions;
 import org.jclouds.openstack.keystone.v2_0.filters.AuthenticateRequest;
 import org.jclouds.rest.annotations.Fallback;
-import org.jclouds.rest.annotations.MapBinder;
 import org.jclouds.rest.annotations.PayloadParam;
 import org.jclouds.rest.annotations.RequestFilters;
 import org.jclouds.rest.annotations.SelectJson;
@@ -99,7 +98,6 @@ public interface SnapshotApi {
    @POST
    @SelectJson("snapshot")
    @Produces(MediaType.APPLICATION_JSON)
-   @MapBinder(CreateSnapshotOptions.class)
    Snapshot create(@PayloadParam("share_id") String shareId, CreateSnapshotOptions... options);
 
    /**

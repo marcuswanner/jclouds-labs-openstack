@@ -28,7 +28,6 @@ import org.jclouds.rest.annotations.Fallback;
 import org.jclouds.rest.annotations.RequestFilters;
 import org.jclouds.rest.annotations.SelectJson;
 import org.jclouds.rest.annotations.SkipEncoding;
-import org.jclouds.rest.annotations.MapBinder;
 
 import javax.inject.Named;
 import javax.ws.rs.Consumes;
@@ -85,7 +84,6 @@ public interface ShareNetworkApi {
    @POST
    @SelectJson("share_network")
    @Produces(MediaType.APPLICATION_JSON)
-   @MapBinder(CreateShareNetworkOptions.class)
    ShareNetwork create(CreateShareNetworkOptions... options);
 
    /**

@@ -39,7 +39,6 @@ import org.jclouds.rest.annotations.Fallback;
 import org.jclouds.rest.annotations.RequestFilters;
 import org.jclouds.rest.annotations.SelectJson;
 import org.jclouds.rest.annotations.SkipEncoding;
-import org.jclouds.rest.annotations.MapBinder;
 
 /**
  * Provides access to the OpenStack Shared Filesystem (Manila) v1 Share Types API.
@@ -86,7 +85,6 @@ public interface ShareTypeApi {
    @POST
    @SelectJson("share_type")
    @Produces(MediaType.APPLICATION_JSON)
-   @MapBinder(CreateShareTypeOptions.class)
    ShareType create(CreateShareTypeOptions... options);
 
    /**
