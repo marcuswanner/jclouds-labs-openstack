@@ -24,7 +24,6 @@ import static org.testng.Assert.assertTrue;
 import java.net.URI;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Set;
 
 import javax.ws.rs.core.MediaType;
 
@@ -40,7 +39,6 @@ import org.jclouds.rest.AuthorizationException;
 import org.jclouds.rest.ResourceNotFoundException;
 import org.testng.annotations.Test;
 
-import com.google.common.collect.ImmutableSet;
 import com.google.common.io.ByteSource;
 
 /**

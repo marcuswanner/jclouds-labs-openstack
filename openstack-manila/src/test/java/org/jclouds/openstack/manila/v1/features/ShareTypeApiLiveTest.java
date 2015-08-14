@@ -19,7 +19,6 @@ package org.jclouds.openstack.manila.v1.features;
 import static org.testng.Assert.assertNotNull;
 
 import java.util.List;
-import java.util.Set;
 
 import org.jclouds.openstack.manila.v1.domain.ShareType;
 import org.testng.annotations.AfterClass;

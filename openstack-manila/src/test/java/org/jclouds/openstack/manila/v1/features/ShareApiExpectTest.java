@@ -24,7 +24,6 @@ import static org.testng.Assert.assertTrue;
 import java.net.URI;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Set;
 
 import javax.ws.rs.core.MediaType;
 

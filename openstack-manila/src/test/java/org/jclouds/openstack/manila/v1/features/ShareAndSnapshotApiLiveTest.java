@@ -21,7 +21,6 @@ import static org.testng.Assert.assertNotNull;
 import static org.testng.Assert.assertTrue;
 
 import java.util.List;
-import java.util.Set;
 
 import com.google.common.collect.ImmutableMap;
 import org.jclouds.openstack.manila.v1.domain.ShareNetwork;
